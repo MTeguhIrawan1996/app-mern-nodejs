@@ -1,0 +1,17 @@
+Authentication
+
+standar API
+
+Standart Respon
+
+200 - OK --> Call API
+201 - CREATED --> POST Success
+400 - BAD REQUEST --> Error on client side (Input salah)
+401 - UNAUTHORIZED --> User Not Authhorized to the REQUEST
+403 - FORBIDDEN --> User not Allowed Access
+404 - NOTFOUND --> Request Endpoint NOTFOUND
+500 - INTERNAL SERVER ERROR --> Error on server side
+502 - BAD GETEWEY --> Invalid Respond from anthoer REQUEST
+
+login
+register
