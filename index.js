@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const multer = require("multer");
 require("dotenv").config();
+const path = require("path");
 
 const app = express();
 const authRoutes = require("./src/routes/auth");
@@ -30,6 +31,9 @@ const fileFilter = (req, file, cb) => {
 };
 
 app.use(bodyParser.json());
+// Pemanggilan Folder Images
+app.use("/images", express.static(path.join(__dirname, "images")));
+// Filter Images yang diupload
 app.use(
   multer({ storage: fileStorage, fileFilter: fileFilter }).single("image")
 );
@@ -46,7 +50,6 @@ app.use((req, res, next) => {
 
 app.use("/v1/auth", authRoutes);
 app.use("/v1/blog", blogRoutes);
-
 app.use((error, req, res, next) => {
   const status = error.errorStatus || 500;
   const message = error.message;
